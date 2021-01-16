@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="nastavenia.ControllerSettings"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+
+    </top>
+    <center>
+        <GridPane alignment="CENTER" hgap="10" vgap="10" gridLinesVisible="false"   >
+            <columnConstraints >
+                <ColumnConstraints prefWidth="80" />
+                <ColumnConstraints prefWidth="150" />
+            </columnConstraints>
+            <Label GridPane.halignment="RIGHT" text="Meno" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <Label GridPane.halignment="RIGHT" text="Priezvisko" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <Label GridPane.halignment="RIGHT" text="Pohlavie" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <Label GridPane.halignment="RIGHT" text="Vek" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <Label GridPane.halignment="RIGHT" text="Hmotnosť" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <TextField GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="TOP_RIGHT">
+            <Button text="Uložiť" prefWidth="90"/>
+        </HBox>
+    </bottom>
+</BorderPane>
