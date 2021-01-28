@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
+<?import hlavneMenu.Pocasie?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hlavneMenu.ControllerMenu"
+            prefHeight="1000.0" prefWidth="1500.0">
+    <top>
+
+    </top>
+    <center>
+        <GridPane alignment="TOP_LEFT" hgap="10" vgap="10" gridLinesVisible="false"   >
+            <columnConstraints >
+                <ColumnConstraints prefWidth="400" />
+                <ColumnConstraints prefWidth="100" />
+                <ColumnConstraints prefWidth="120" />
+                <ColumnConstraints prefWidth="670"/>
+                <ColumnConstraints prefWidth="30"/>
+            </columnConstraints>
+            <TextField GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Button text="ULOŽIŤ DATA" prefWidth="120" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Button text="ZOBRAZIŤ DATA" prefWidth="140" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <Button text="⁞" prefWidth="20" GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#nastavenia"/>
+            <Label GridPane.halignment="CENTER" text="Mesto" prefHeight="50" GridPane.rowIndex="1" GridPane.columnSpan="5"/>
+            <TableView  fx:id="tableView" GridPane.rowIndex="2" GridPane.columnSpan="5" >
+                <columns>
+                    <TableColumn text="Deň" prefWidth="310">
+                        <cellValueFactory><PropertyValueFactory property="den" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Oblačnosť" prefWidth="260">
+                    </TableColumn>
+                    <TableColumn text="Najvyžšia teplota cez deň" prefWidth="260">
+                    </TableColumn>
+                    <TableColumn text="Najnižšia teplota v noci" prefWidth="260">
+                    </TableColumn>
+                    <TableColumn text="Pitný režim" prefWidth="260">
+                    </TableColumn>
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Pocasie den="Dnes" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Pondelok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Utorok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Streda" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Štvrtok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Piatok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Sobota" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                        <Pocasie den="Nedeľa" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
+                    </FXCollections>
+                </items>
+            </TableView>
+            <GridPane GridPane.rowIndex="3" GridPane.columnSpan="4">
+                <columnConstraints >
+                    <ColumnConstraints prefWidth="220" />
+                    <ColumnConstraints prefWidth="220" />
+                    <ColumnConstraints prefWidth="220" />
+                    <ColumnConstraints prefWidth="220"/>
+                    <ColumnConstraints prefWidth="220" />
+                    <ColumnConstraints prefWidth="220"/>
+                </columnConstraints>
+                <Label GridPane.halignment="RIGHT" text="Dnes:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label GridPane.halignment="LEFT" text="  poloblačno" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label GridPane.halignment="RIGHT" text="Východ Slnka:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <Label GridPane.halignment="LEFT" text="  6:50" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <Label GridPane.halignment="RIGHT" text="Západ Slnka:" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+                <Label GridPane.halignment="LEFT" text="  20:00" GridPane.rowIndex="0" GridPane.columnIndex="5"/>
+            </GridPane>
+        </GridPane>
+    </center>
+    <bottom>
+        <GridPane alignment="TOP_LEFT" hgap="10" vgap="10" gridLinesVisible="false">
+            <TableView>
+                <columns>
+                    <TableColumn text="Nalačno" prefWidth="100">
+                    </TableColumn>
+                    <TableColumn text="8:00 - 10:00" prefWidth="100">
+                    </TableColumn>
+                    <TableColumn text="10:00 - 12:00" prefWidth="100">
+                    </TableColumn>
+                    <TableColumn text="12:00 - 14:00" prefWidth="100">
+                    </TableColumn>
+                    <TableColumn text="14:00 - 16:00" prefWidth="100">
+                    </TableColumn>
+                    <TableColumn text="16:00 - 18:00" prefWidth="100">
+                    </TableColumn>
+                    <TableColumn text="18:00 - 21:00" prefWidth="100">
+                    </TableColumn>
+                </columns>
+
+            </TableView>
+        </GridPane>
+    </bottom>
+</BorderPane>
