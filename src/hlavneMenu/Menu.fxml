@@ -24,14 +24,16 @@
                 <ColumnConstraints prefWidth="400" />
                 <ColumnConstraints prefWidth="100" />
                 <ColumnConstraints prefWidth="120" />
-                <ColumnConstraints prefWidth="700"/>
+                <ColumnConstraints prefWidth="670"/>
+                <ColumnConstraints prefWidth="30"/>
             </columnConstraints>
             <TextField GridPane.rowIndex="0" GridPane.columnIndex="0" />
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
             <Button text="ULOŽIŤ DATA" prefWidth="120" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
             <Button text="ZOBRAZIŤ DATA" prefWidth="140" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-            <Label GridPane.halignment="CENTER" text="Mesto" prefHeight="50" GridPane.rowIndex="1" GridPane.columnSpan="4"/>
-            <TableView  fx:id="tableView" GridPane.rowIndex="2" GridPane.columnSpan="4" >
+            <Button text="⁞" prefWidth="20" GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#nastavenia"/>
+            <Label GridPane.halignment="CENTER" text="Mesto" prefHeight="50" GridPane.rowIndex="1" GridPane.columnSpan="5"/>
+            <TableView  fx:id="tableView" GridPane.rowIndex="2" GridPane.columnSpan="5" >
                 <columns>
                     <TableColumn text="Deň" prefWidth="310">
                         <cellValueFactory><PropertyValueFactory property="den" />

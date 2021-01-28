@@ -24,7 +24,7 @@ public class DBUzivatela {
                     " pohlavie VARCHAR(255), " +
                     " vek INTEGER, " +
                     " hmotnost DOUBLE, " +
-                    " PRIMARY KEY ( id )}";
+                    " PRIMARY KEY ( id ));";
 
             statement.execute(sql);
             connection.close();

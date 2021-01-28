@@ -8,21 +8,15 @@ public class Uzivatel {
     private double hmotnost;
 
 
-    public Uzivatel(String jehoMeno, String jehoPriezvisko, int jehoVek, double jehoHmotnost){
-        this.meno = jehoMeno;
-        this.priezvisko = jehoPriezvisko;
-        this.vek = jehoVek;
-        this.hmotnost = jehoHmotnost;
-        pohlavie = "muž";
+    public Uzivatel(String Meno, String Priezvisko, int Vek, double Hmotnost, String Pohlavie){
+        this.meno = Meno;
+        this.priezvisko = Priezvisko;
+        this.vek = Vek;
+        this.hmotnost = Hmotnost;
+        this.pohlavie = Pohlavie;
     }
 
-    public Uzivatel(String jejMeno, String jejPriezvisko, double jejHmotnost, int jejVek){
-        this.meno = jejMeno;
-        this.priezvisko = jejPriezvisko;
-        this.vek = jejVek;
-        this.hmotnost = jejHmotnost;
-        pohlavie = "žena";
-    }
+
 
     public String getMeno() {
         return meno;

@@ -11,29 +11,48 @@
             fx:controller="nastavenia.ControllerSettings"
             prefHeight="400.0" prefWidth="600.0">
     <top>
-
+        <GridPane alignment="CENTER" hgap="10" vgap="10" gridLinesVisible="false">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="175" />
+                <ColumnConstraints prefWidth="175" />
+                <ColumnConstraints prefWidth="100" />
+            </columnConstraints>
+            <TextField fx:id="vyhladavatMena" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <TextField fx:id="vyhladavatPriezviska" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#hladat"/>
+            <Label fx:id="chyba" GridPane.halignment="CENTER" prefHeight="30" GridPane.rowIndex="1" GridPane.columnSpan="3"/>
+        </GridPane>
     </top>
     <center>
-        <GridPane alignment="CENTER" hgap="10" vgap="10" gridLinesVisible="false"   >
+        <GridPane alignment="CENTER" hgap="10" vgap="10" gridLinesVisible="false">
             <columnConstraints >
                 <ColumnConstraints prefWidth="80" />
                 <ColumnConstraints prefWidth="150" />
             </columnConstraints>
             <Label GridPane.halignment="RIGHT" text="Meno" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <TextField fx:id="meno" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
             <Label GridPane.halignment="RIGHT" text="Priezvisko" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <TextField fx:id="priezvisko" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
             <Label GridPane.halignment="RIGHT" text="Pohlavie" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-            <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <TextField fx:id="pohlavie" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
             <Label GridPane.halignment="RIGHT" text="Vek" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-            <TextField GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <TextField fx:id="vek" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+
             <Label GridPane.halignment="RIGHT" text="Hmotnosť" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-            <TextField GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+            <TextField fx:id="hmotnost" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
         </GridPane>
     </center>
     <bottom>
-        <HBox spacing="10" alignment="TOP_RIGHT">
-            <Button text="Uložiť" prefWidth="90"/>
-        </HBox>
+        <GridPane>
+            <columnConstraints >
+                <ColumnConstraints prefWidth="300"/>
+                <ColumnConstraints prefWidth="300"/>
+            </columnConstraints>
+            <Button onAction="#ulozit" text="Uložiť" prefWidth="90" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="RIGHT"/>
+            <Button text="Použiť" prefWidth="90" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="LEFT"/>
+        </GridPane>
     </bottom>
 </BorderPane>
