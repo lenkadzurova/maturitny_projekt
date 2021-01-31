@@ -1,5 +1,6 @@
 package nastavenia;
 
+import connection.DatabaseCon;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -48,17 +49,15 @@ public class ControllerSettings {
         String  localHmotnost = hmotnost.getText().trim();
 
 
-        String url = "jdbc:h2:tcp://localhost/C:/Users/admin/Desktop/škola/PRO/4.ročník/java/maturitnyProjekt.db";
-        String meno = "lenka";
-        String heslo = "heslo";
 
         try {
-            Connection connection = DriverManager.getConnection(url, meno, heslo);
+            Connection connection = DatabaseCon.getInstance().getConnection();
             Statement statement = connection.createStatement();
 
             String sql = " INSERT INTO UZIVATELIA VALUES ("+ generator() + ",'" + localMeno + "','" + localPriezvisko + "','" + localPohlavie + "','" + localVek + "'," + localHmotnost +");";
             System.out.println(sql);
             statement.execute(sql);
+
 
 
         } catch (SQLException e) {
@@ -72,7 +71,19 @@ public class ControllerSettings {
     }
 
     public void hladat() {
+        if( vyhladavatMena.getText().trim().isEmpty() && !vyhladavatPriezviska.getText().trim().isEmpty()){
+            System.out.println("zapísané iba priezvisko");
 
+        }else if(!vyhladavatMena.getText().trim().isEmpty() && vyhladavatPriezviska.getText().trim().isEmpty()){
+            System.out.println("zapísané iba meno");
+
+        }else if(!vyhladavatMena.getText().trim().isEmpty() && !vyhladavatPriezviska.getText().trim().isEmpty()){
+            System.out.println("obidve zapísané");
+
+        }else{
+            System.out.println("prázdne");
+
+        }
 
     }
 }
