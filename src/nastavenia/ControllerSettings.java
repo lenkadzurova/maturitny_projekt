@@ -33,6 +33,7 @@ public class ControllerSettings {
     @FXML
     Label chyba;
 
+    DatabaseCon databaseCon = DatabaseCon.getInstance();
 
     @FXML
     public void ulozit(){
@@ -70,20 +71,105 @@ public class ControllerSettings {
         return (random.nextInt(500));
     }
 
-    public void hladat() {
+    public void hladat() throws SQLException {
+        Connection  connection = null;
+        Statement statement = null;
+        ResultSet vystupZDatabazy = null;
+        String meno = null;
+        String priezvisko = null;
+        String pohlavie = null;
+        int vek = 0;
+        int hmotnost = 0;
+        int controlneCislo = 0;
+
+        try {
+           connection = databaseCon.getConnection();
+           statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         if( vyhladavatMena.getText().trim().isEmpty() && !vyhladavatPriezviska.getText().trim().isEmpty()){
-            System.out.println("zapísané iba priezvisko");
+            String sql1 = "SELECT * From UZIVATELIA WHERE priezvisko ='"+ vyhladavatPriezviska.getText().trim()+"'";
+            vystupZDatabazy = statement.executeQuery(sql1);
+            while (vystupZDatabazy.next()){
+                controlneCislo++;
+                if (controlneCislo > 2 ){
+                    System.out.println("upresni hladanie");
+                    this.meno.setText("");
+                    break;
+                }
+
+                meno = vystupZDatabazy.getString("meno");
+                priezvisko = vystupZDatabazy.getString("priezvisko");
+                pohlavie = vystupZDatabazy.getString("pohlavie");
+                vek = vystupZDatabazy.getInt("vek");
+                hmotnost = vystupZDatabazy.getInt("hmotnost");
+
+
+
+                System.out.println(meno + " " + priezvisko + " " + pohlavie + " " + vek + " " + hmotnost);
+            }
+            this.meno.setText(meno);
+            this.priezvisko.setText(priezvisko);
+            this.pohlavie.setText(pohlavie);
+            this.vek.setText(String.valueOf(vek));
+            this.hmotnost.setText(String.valueOf(hmotnost));
 
         }else if(!vyhladavatMena.getText().trim().isEmpty() && vyhladavatPriezviska.getText().trim().isEmpty()){
-            System.out.println("zapísané iba meno");
+            String sql1 = "SELECT * From UZIVATELIA WHERE meno = '"+ vyhladavatMena.getText().trim()+"'";
+            vystupZDatabazy = statement.executeQuery(sql1);
+            while (vystupZDatabazy.next()){
+                controlneCislo++;
+                if (controlneCislo > 2 ){
+                    System.out.println("upresni hladanie");
+                    this.meno.setText("");
+                    break;
+                }
+
+                meno = vystupZDatabazy.getString("meno");
+                priezvisko = vystupZDatabazy.getString("priezvisko");
+                pohlavie = vystupZDatabazy.getString("pohlavie");
+                vek = vystupZDatabazy.getInt("vek");
+                hmotnost = vystupZDatabazy.getInt("hmotnost");
+
+
+
+                System.out.println(meno + " " + priezvisko + " " + pohlavie + " " + vek + " " + hmotnost);
+            }
+            if (controlneCislo == 0){
+                chyba.setText("uživateľ neexistuje");
+            }
+            this.meno.setText(meno);
+            this.priezvisko.setText(priezvisko);
+            this.pohlavie.setText(pohlavie);
+            this.vek.setText(String.valueOf(vek));
+            this.hmotnost.setText(String.valueOf(hmotnost));
 
         }else if(!vyhladavatMena.getText().trim().isEmpty() && !vyhladavatPriezviska.getText().trim().isEmpty()){
-            System.out.println("obidve zapísané");
+            String sql1 = "SELECT * From UZIVATELIA WHERE meno = '"+ vyhladavatMena.getText().trim()+"' AND priezvisko ='"+ vyhladavatPriezviska.getText().trim()+"'";
+            vystupZDatabazy = statement.executeQuery(sql1);
 
-        }else{
-            System.out.println("prázdne");
+            while (vystupZDatabazy.next()){
+                meno = vystupZDatabazy.getString("meno");
+                priezvisko = vystupZDatabazy.getString("priezvisko");
+                pohlavie = vystupZDatabazy.getString("pohlavie");
+                vek = vystupZDatabazy.getInt("vek");
+                hmotnost = vystupZDatabazy.getInt("hmotnost");
+
+
+
+                System.out.println(meno + " " + priezvisko + " " + pohlavie + " " + vek + " " + hmotnost);
+            }
+            this.meno.setText(meno);
+            this.priezvisko.setText(priezvisko);
+            this.pohlavie.setText(pohlavie);
+            this.vek.setText(String.valueOf(vek));
+            this.hmotnost.setText(String.valueOf(hmotnost));
 
         }
+
+
 
     }
 }

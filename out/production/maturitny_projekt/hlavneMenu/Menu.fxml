@@ -27,6 +27,9 @@
                 <ColumnConstraints prefWidth="670"/>
                 <ColumnConstraints prefWidth="30"/>
             </columnConstraints>
+            <padding>
+                <Insets top="10"left="10"></Insets>
+            </padding>
             <TextField GridPane.rowIndex="0" GridPane.columnIndex="0" />
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
             <Button text="ULOŽIŤ DATA" prefWidth="120" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
