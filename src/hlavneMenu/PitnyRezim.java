@@ -1,5 +1,10 @@
 package hlavneMenu;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 public class PitnyRezim {
     double hmotnost;
     static int konstantaHm = 15;
@@ -21,7 +26,22 @@ public class PitnyRezim {
     public static void main(String[] args) {
         PitnyRezim pitnyRezim = new PitnyRezim(65);
 
-        System.out.println(pitnyRezim.vypocet1());
-        System.out.println(pitnyRezim.vypocet2());
+        LocalDateTime myDateObj = LocalDateTime.now();
+        System.out.println("Before formatting: " + myDateObj);
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        String formattedDate = myDateObj.format(myFormatObj);
+        System.out.println("After formatting: " + formattedDate);
+        System.out.println(myDateObj.getDayOfWeek());
+
+
+        LocalDate initialDate = LocalDate.parse("2007-05-10");
+
+
+
+
+
+        //System.out.println(pitnyRezim.vypocet1());
+        //System.out.println(pitnyRezim.vypocet2());
     }
 }

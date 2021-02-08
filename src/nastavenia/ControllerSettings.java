@@ -94,9 +94,13 @@ public class ControllerSettings {
             vystupZDatabazy = statement.executeQuery(sql1);
             while (vystupZDatabazy.next()){
                 controlneCislo++;
-                if (controlneCislo > 2 ){
-                    System.out.println("upresni hladanie");
-                    this.meno.setText("");
+                if (controlneCislo > 1 ){
+                    chyba.setText("upresni hladanie");
+                    meno = "";
+                    priezvisko = "";
+                    pohlavie = "";
+                    vek = 0;
+                    hmotnost = 0;
                     break;
                 }
 
@@ -121,9 +125,13 @@ public class ControllerSettings {
             vystupZDatabazy = statement.executeQuery(sql1);
             while (vystupZDatabazy.next()){
                 controlneCislo++;
-                if (controlneCislo > 2 ){
-                    System.out.println("upresni hladanie");
-                    this.meno.setText("");
+                if (controlneCislo > 1 ){
+                    chyba.setText("upresni hladanie");
+                    meno = "";
+                    priezvisko = "";
+                    pohlavie = "";
+                    vek = 0;
+                    hmotnost = 0;
                     break;
                 }
 
@@ -168,8 +176,6 @@ public class ControllerSettings {
             this.hmotnost.setText(String.valueOf(hmotnost));
 
         }
-
-
 
     }
 }

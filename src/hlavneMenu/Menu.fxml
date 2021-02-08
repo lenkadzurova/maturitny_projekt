@@ -28,7 +28,7 @@
                 <ColumnConstraints prefWidth="30"/>
             </columnConstraints>
             <padding>
-                <Insets top="10"left="10"></Insets>
+                <Insets top="10" left="10"></Insets>
             </padding>
             <TextField GridPane.rowIndex="0" GridPane.columnIndex="0" />
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
@@ -84,7 +84,7 @@
     </center>
     <bottom>
         <GridPane alignment="TOP_LEFT" hgap="10" vgap="10" gridLinesVisible="false">
-            <TableView>
+            <TableView prefHeight="100">
                 <columns>
                     <TableColumn text="Nalačno" prefWidth="100">
                     </TableColumn>
@@ -101,7 +101,6 @@
                     <TableColumn text="18:00 - 21:00" prefWidth="100">
                     </TableColumn>
                 </columns>
-
             </TableView>
         </GridPane>
     </bottom>
