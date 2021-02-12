@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="nastavenia.ControllerSettings"
@@ -17,6 +18,9 @@
                 <ColumnConstraints prefWidth="175" />
                 <ColumnConstraints prefWidth="100" />
             </columnConstraints>
+            <padding>
+                <Insets top="10" left="10" right="10" ></Insets>
+            </padding>
             <TextField fx:id="vyhladavatMena" GridPane.rowIndex="0" GridPane.columnIndex="0" />
             <TextField fx:id="vyhladavatPriezviska" GridPane.rowIndex="0" GridPane.columnIndex="1" />
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#hladat"/>
@@ -51,6 +55,9 @@
                 <ColumnConstraints prefWidth="300"/>
                 <ColumnConstraints prefWidth="300"/>
             </columnConstraints>
+            <padding>
+                <Insets top="5" left="5" right="5" bottom="5"></Insets>
+            </padding>
             <Button onAction="#ulozit" text="Uložiť" prefWidth="90" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="RIGHT"/>
             <Button text="Použiť" prefWidth="90" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="LEFT"/>
         </GridPane>

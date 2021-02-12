@@ -16,15 +16,17 @@ public class DBUzivatela {
 
             Statement statement = connection.createStatement();
 
-            String sql = "CREATE TABLE POCASIE " +
+            /*String sql = "CREATE TABLE POCASIE " +
                     "(id INTEGER not NULL, " +
                     " mesto VARCHAR(255), " +
                     " den VARCHAR(255), " +
-                    " oblacno VARCHAR(255), " +
-                    " najvTeplCezDen DOUBLE, " +
-                    " najnTeplVNoci DOUBLE, " +
+                    " oblacnost VARCHAR(255), " +
+                    " najvyysiaTeplotaCezDen DOUBLE, " +
+                    " najnizsiaTeplotaVNoci DOUBLE, " +
+                    " vychodSlnka DOUBLE, " +
+                    " zapadSlnka DOUBLE, " +
                     " PRIMARY KEY ( id ));";
-            statement.execute(sql);
+            statement.execute(sql);*/
 
             connection.close();
         }
