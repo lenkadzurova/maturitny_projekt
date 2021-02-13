@@ -1,5 +1,7 @@
 package nastavenia;
 
+import connection.DatabaseCon;
+
 public class Uzivatel {
     private String meno;
     private String priezvisko;
@@ -7,15 +9,9 @@ public class Uzivatel {
     private int vek;
     private double hmotnost;
 
+    private Uzivatel(){
 
-    public Uzivatel(String Meno, String Priezvisko, int Vek, double Hmotnost, String Pohlavie){
-        this.meno = Meno;
-        this.priezvisko = Priezvisko;
-        this.vek = Vek;
-        this.hmotnost = Hmotnost;
-        this.pohlavie = Pohlavie;
     }
-
 
 
     public String getMeno() {
@@ -59,5 +55,16 @@ public class Uzivatel {
         this.hmotnost = hmotnost;
     }
 
+    private static Uzivatel uzivatel = null;
 
+    public static Uzivatel getInstance() {
+
+
+        if (uzivatel == null) {
+            return new Uzivatel();
+
+        } else {
+            return uzivatel;
+        }
+    }
 }

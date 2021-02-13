@@ -15,13 +15,15 @@ public class PitnyRezim {
         this.hmotnost = hmotnost;
     }
 
-    public double vypocet1(){
-        return ((hmotnost/konstantaHm)*konstantaLt1);
+    public double vypocet(int vaha, int pocasie){
+        if(pocasie>20){
+            return (hmotnost/konstantaHm)*konstantaLt2;
+        }else {
+            return ((hmotnost/konstantaHm)*konstantaLt1);
+        }
+
     }
 
-    public double vypocet2(){
-        return (hmotnost/konstantaHm)*konstantaLt2;
-    }
 
     public static void main(String[] args) {
         PitnyRezim pitnyRezim = new PitnyRezim(65);
