@@ -33,6 +33,7 @@
                 <ColumnConstraints prefWidth="80" />
                 <ColumnConstraints prefWidth="150" />
             </columnConstraints>
+
             <Label GridPane.halignment="RIGHT" text="Meno" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
             <TextField fx:id="meno" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
 

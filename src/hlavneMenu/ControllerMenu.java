@@ -25,8 +25,7 @@ public class ControllerMenu {
 
     @FXML
     TextField vyhladavatMesto;
-    @FXML
-    Label nazovMesta;
+
 
     @FXML
     Label mojeMesto;
@@ -40,6 +39,11 @@ public class ControllerMenu {
 
     List<Mesto> mestoList  = new ArrayList<>();
 
+    @FXML
+    public void hladat(){
+        System.out.println(pokus.getNazov());
+    }
+
     public void initialize(){
 
         mojeMesto.setText(pokus.getNazov());
@@ -51,21 +55,20 @@ public class ControllerMenu {
         mestoList.add(new Mesto("Holic","naj 5","min 5"," jasno5", "piatok"));
         mestoList.add(new Mesto("Holic","naj 6","min 6"," jasno5", "sobota"));
 
+        TableColumn<Mesto, String> col1 = new TableColumn<>("Datum");
+        col1.setCellValueFactory(new PropertyValueFactory<>("datum"));
 
-        TableColumn<Mesto, String> col1 = new TableColumn<>("Naj teploa");
-        col1.setCellValueFactory(new PropertyValueFactory<>("najTeplota"));
+        TableColumn<Mesto, String> col2 = new TableColumn<>("Oblano");
+        col2.setCellValueFactory(new PropertyValueFactory<>("oblacno"));
 
-        TableColumn<Mesto, String> col2 = new TableColumn<>("Min teplota");
-        col2.setCellValueFactory(new PropertyValueFactory<>("minTeplota"));
+        TableColumn<Mesto, String> col3 = new TableColumn<>("Naj teploa");
+        col3.setCellValueFactory(new PropertyValueFactory<>("najTeplota"));
 
-        TableColumn<Mesto, String> col3 = new TableColumn<>("Oblano");
-        col3.setCellValueFactory(new PropertyValueFactory<>("oblacno"));
-
-        TableColumn<Mesto, String> col4 = new TableColumn<>("Datum");
-        col4.setCellValueFactory(new PropertyValueFactory<>("datum"));
+        TableColumn<Mesto, String> col4 = new TableColumn<>("Min teplota");
+        col4.setCellValueFactory(new PropertyValueFactory<>("minTeplota"));
 
         TableColumn<Mesto, String> col5 = new TableColumn<>("Pitny rezim");
-        col4.setCellValueFactory(new PropertyValueFactory<>("datum"));
+        col5.setCellValueFactory(new PropertyValueFactory<>("datum"));
 
         tableView.getColumns().add(col1);
         tableView.getColumns().add(col2);
@@ -93,13 +96,10 @@ public class ControllerMenu {
         }
     }
 
-    public void hladat()  {
-
-    }
 
 
-    List<Mesto> mesta = new ArrayList<>();
-    public void ziskanieInformaciiZDB(){
+    /*List<Mesto> mesta = new ArrayList<>();
+    public void ziskanieInformaciiZDB() {
         Connection connection = null;
         Statement statement = null;
         ResultSet vystupZDatabazy = null;
@@ -109,7 +109,7 @@ public class ControllerMenu {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        while (true){
+        while (true) {
             Mesto mesto = new Mesto();
             mesto.setMesto("SELECT * From POCASIE WHERE mesto'");
             mesto.setMesto("SELECT * From POCASIE WHERE den'");
@@ -121,6 +121,8 @@ public class ControllerMenu {
 
             mesta.add(mesto);
         }
+    }*/
 
-    }
 }
+
+

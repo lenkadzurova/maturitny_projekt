@@ -35,51 +35,15 @@
             <Button text="ULOŽIŤ DATA" prefWidth="140" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
             <Button text="ZOBRAZIŤ DATA" prefWidth="140" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
             <Button text="⁞" prefWidth="20" GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#nastavenia"/>
-            <Label fx:id="nazovMesta" GridPane.halignment="CENTER"  prefHeight="50" GridPane.rowIndex="1" GridPane.columnSpan="5"/>
-            <TableView  fx:id="tableView" GridPane.rowIndex="2" GridPane.columnSpan="5" >
+            <Label fx:id="mojeMesto" GridPane.halignment="CENTER"  prefHeight="50" GridPane.rowIndex="1" GridPane.columnSpan="5"/>
+            <TableView  fx:id="tableView" GridPane.rowIndex="2" GridPane.columnSpan="5" editable="true" tableMenuButtonVisible="true"  >
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
                 <columns>
-                    <TableColumn text="Deň" prefWidth="260">
-                        <cellValueFactory><PropertyValueFactory property="den" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn text="Oblačnosť" prefWidth="260">
-                    </TableColumn>
-                    <TableColumn text="Najvyžšia teplota cez deň" prefWidth="265">
-                    </TableColumn>
-                    <TableColumn text="Najnižšia teplota v noci" prefWidth="265">
-                    </TableColumn>
-                    <TableColumn text="Pitný režim" prefWidth="260">
-                    </TableColumn>
+                    <TableColumn fx:id="tableColumn" maxWidth="100.0" minWidth="30.0" prefWidth="40.0" resizable="true" sortable="false" />
                 </columns>
-                <items>
-                    <FXCollections fx:factory="observableArrayList" >
-                        <Pocasie den="Dnes" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Pondelok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Utorok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Streda" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Štvrtok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Piatok" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Sobota" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                        <Pocasie den="Nedeľa" oblacnost="" najvyzsiaTeplota="" najnizsiaTeplota="" pitnyRezim=""/>
-                    </FXCollections>
-                </items>
             </TableView>
-            <GridPane GridPane.rowIndex="3" GridPane.columnSpan="4">
-                <columnConstraints >
-                    <ColumnConstraints prefWidth="220" />
-                    <ColumnConstraints prefWidth="220" />
-                    <ColumnConstraints prefWidth="220" />
-                    <ColumnConstraints prefWidth="220"/>
-                    <ColumnConstraints prefWidth="220" />
-                    <ColumnConstraints prefWidth="220"/>
-                </columnConstraints>
-                <Label GridPane.halignment="RIGHT" text="Dnes:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <Label GridPane.halignment="LEFT" text="  poloblačno" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                <Label GridPane.halignment="RIGHT" text="Východ Slnka:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                <Label GridPane.halignment="LEFT" text="  6:50" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
-                <Label GridPane.halignment="RIGHT" text="Západ Slnka:" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
-                <Label GridPane.halignment="LEFT" text="  20:00" GridPane.rowIndex="0" GridPane.columnIndex="5"/>
-            </GridPane>
         </GridPane>
     </center>
     <bottom>
