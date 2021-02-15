@@ -36,16 +36,12 @@ public class ControllerMenu {
     @FXML
     TableView tableView;
 
-
+    Uzivatel uzivatel = Uzivatel.getInstance();
     TEST pokus = TEST.getInstance();
 
 
     List<Mesto> mestoList  = new ArrayList<>();
 
-    @FXML
-    public void hladat(){
-        System.out.println(pokus.getNazov());
-    }
 
     public void initialize(){
 
@@ -101,27 +97,39 @@ public class ControllerMenu {
 
 
 
-    List<Mesto> mesta = new ArrayList<>();
-    public void ziskanieInformaciiZDB() {
+    @FXML
+    public void hladat() {
         Connection connection = null;
         Statement statement = null;
         ResultSet vystupZDatabazy = null;
+        String mestoDB = null;
+        String oblacnostDB = null;
+        int najvyysiaTeplotaCezDenDB = 0;
+        int najnizsiaTeplotaVNociDB = 0;
+
+
         try {
             connection = databaseCon.getConnection();
             statement = connection.createStatement();
+            String sql1 = "SELECT * From POCASIE WHERE mesto ='"+ vyhladavatMesto.getText().trim()+"'";
+            vystupZDatabazy = statement.executeQuery(sql1);
+            while (vystupZDatabazy.next()) {
+                Mesto mesto = new Mesto();
+                mestoDB =  vystupZDatabazy.getString("mesto");
+                oblacnostDB = vystupZDatabazy.getString("oblacnost");
+                najvyysiaTeplotaCezDenDB = vystupZDatabazy.getInt("najvyysiaTeplotaCezDen");
+                najnizsiaTeplotaVNociDB = vystupZDatabazy.getInt("najnizsiaTeplotaVNoci");
+                mesto.setPitnyRezim(PitnyRezim.vypocet(uzivatel.getHmotnost(), Double.parseDouble(mesto.najTeplota)));
+
+                System.out.println(mestoDB + " " + oblacnostDB + " " + najvyysiaTeplotaCezDenDB + " " + najnizsiaTeplotaVNociDB);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        while (true) {
-            Mesto mesto = new Mesto();
-            mesto.setMesto("SELECT * From POCASIE WHERE mesto'");
-            mesto.setDatum("SELECT * From POCASIE WHERE datum'");
-            mesto.setOblacno("SELECT * From POCASIE WHERE oblacnost'");
-            mesto.setNajTeplota("SELECT * From POCASIE WHERE najvyysiaTeplotaCezDen'");
-            mesto.setMinTeplota("SELECT * From POCASIE WHERE najnizsiaTeplotaVNoci'");
 
-            mesta.add(mesto);
-        }
+
+
 
     }
 

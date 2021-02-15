@@ -33,7 +33,7 @@
                 <Insets top="20" left="20" right="20"></Insets>
             </padding>
             <TextField fx:id="vyhladavatMesto" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-            <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#hladat"/>
             <Button text="ULOŽIŤ DATA" prefWidth="140" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
             <Button text="ZOBRAZIŤ DATA" prefWidth="140" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
             <Label fx:id="menoUzivatela" text="meno uživateľa" prefWidth="130" GridPane.columnIndex="4" GridPane.rowIndex="0"/>

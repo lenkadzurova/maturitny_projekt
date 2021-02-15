@@ -11,6 +11,8 @@ public class Mesto {
 
     String datum;
 
+    double pitnyRezim;
+
     public  Mesto(){
 
     }
@@ -63,5 +65,11 @@ public class Mesto {
         this.datum = datum;
     }
 
+    public double getPitnyRezim() {
+        return pitnyRezim;
+    }
 
+    public void setPitnyRezim(double pitnyRezim) {
+        this.pitnyRezim = pitnyRezim;
+    }
 }

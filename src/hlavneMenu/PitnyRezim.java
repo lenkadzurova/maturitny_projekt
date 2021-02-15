@@ -6,7 +6,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class PitnyRezim {
-    double hmotnost;
+    static double hmotnost;
     static int konstantaHm = 15;
     static double konstantaLt1 = 0.5;
     static double konstantaLt2 = 0.7;
@@ -15,11 +15,11 @@ public class PitnyRezim {
         this.hmotnost = hmotnost;
     }
 
-    public double vypocet(int vaha, int pocasie){
+    public static double vypocet(double vaha, double pocasie){
         if(pocasie>20){
-            return (hmotnost/konstantaHm)*konstantaLt2;
+            return (vaha/konstantaHm)*konstantaLt2;
         }else {
-            return ((hmotnost/konstantaHm)*konstantaLt1);
+            return ((vaha/konstantaHm)*konstantaLt1);
         }
 
     }

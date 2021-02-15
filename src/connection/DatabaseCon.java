@@ -14,7 +14,7 @@ public class DatabaseCon {
 
     }
 
-    public static DatabaseCon databaseCon = null;
+    public static DatabaseCon databaseCon = new DatabaseCon();
 
     public static DatabaseCon getInstance() {
 

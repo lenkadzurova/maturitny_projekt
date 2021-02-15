@@ -43,7 +43,7 @@ public class Uzivatel {
         return vek;
     }
 
-    public void setVek(String a) {
+    public void setVek(Integer vek) {
         this.vek = vek;
     }
 
@@ -51,11 +51,11 @@ public class Uzivatel {
         return hmotnost;
     }
 
-    public void setHmotnost(String s){
+    public void setHmotnost(Double hmotnost){
         this.hmotnost = hmotnost;
     }
 
-    private static Uzivatel uzivatel = null;
+    private static Uzivatel uzivatel = new Uzivatel();
 
     public static Uzivatel getInstance() {
 

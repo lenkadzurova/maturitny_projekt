@@ -183,9 +183,9 @@ public class ControllerSettings {
     public void pouzit(){
         Uzivatel uzivatel = Uzivatel.getInstance();
         uzivatel.setMeno(meno.getText());
-        uzivatel.setPohlavie(priezvisko.getText());
+        uzivatel.setPriezvisko(priezvisko.getText());
         uzivatel.setPohlavie(pohlavie.getText());
-        uzivatel.setHmotnost(hmotnost.getText());
-        uzivatel.setVek(vek.getText());
+        uzivatel.setHmotnost(Double.parseDouble(hmotnost.getText()) );
+        uzivatel.setVek(Integer.parseInt(vek.getText()) );
     }
 }
