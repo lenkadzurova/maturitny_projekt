@@ -48,12 +48,12 @@ public class ControllerMenu {
 
         mojeMesto.setText(pokus.getNazov());
 
-        mestoList.add(new Mesto("Holic","naj 1","min 1"," jasno", "pondelok"));
-        mestoList.add(new Mesto("Holic","naj 2","min 2"," jasno2", "utorok"));
-        mestoList.add(new Mesto("Holic","naj 3","min 3"," jasno4", "streda"));
-        mestoList.add(new Mesto("Holic","naj 4","min 4"," jasno55", "stvrtok"));
-        mestoList.add(new Mesto("Holic","naj 5","min 5"," jasno5", "piatok"));
-        mestoList.add(new Mesto("Holic","naj 6","min 6"," jasno5", "sobota"));
+        mestoList.add(new Mesto("Holic",1,1," jasno", "pondelok"));
+        mestoList.add(new Mesto("Holic",2,2," jasno2", "utorok"));
+        mestoList.add(new Mesto("Holic",3,3," jasno4", "streda"));
+        mestoList.add(new Mesto("Holic",4,4," jasno55", "stvrtok"));
+        mestoList.add(new Mesto("Holic",5,5," jasno5", "piatok"));
+        mestoList.add(new Mesto("Holic",6,6," jasno5", "sobota"));
 
         TableColumn<Mesto, String> col1 = new TableColumn<>("Datum");
         col1.setCellValueFactory(new PropertyValueFactory<>("datum"));
@@ -97,16 +97,13 @@ public class ControllerMenu {
     }
 
 
-
+    List<Mesto>mesta = new ArrayList<>();
     @FXML
     public void hladat() {
         Connection connection = null;
         Statement statement = null;
         ResultSet vystupZDatabazy = null;
-        String mestoDB = null;
-        String oblacnostDB = null;
-        int najvyysiaTeplotaCezDenDB = 0;
-        int najnizsiaTeplotaVNociDB = 0;
+
 
 
         try {
@@ -117,13 +114,15 @@ public class ControllerMenu {
             double x = uzivatel.getHmotnost();
             while (vystupZDatabazy.next()) {
                 Mesto mesto = new Mesto();
-                mestoDB =  vystupZDatabazy.getString("mesto");
-                oblacnostDB = vystupZDatabazy.getString("oblacnost");
-                najvyysiaTeplotaCezDenDB = vystupZDatabazy.getInt("najvyysiaTeplotaCezDen");
-                najnizsiaTeplotaVNociDB = vystupZDatabazy.getInt("najnizsiaTeplotaVNoci");
-                mesto.setPitnyRezim(PitnyRezim.vypocet(70, Double.parseDouble(mesto.najTeplota)));
+                mesto.setMesto(vystupZDatabazy.getString("mesto"));
+                mesto.setOblacno(vystupZDatabazy.getString("oblacnost"));
+                mesto.setNajTeplota(vystupZDatabazy.getDouble("najvyysiaTeplotaCezDen"));
+                mesto.setMinTeplota(vystupZDatabazy.getDouble("najnizsiaTeplotaVNoci"));
+                mesta.add(mesto);
 
-                System.out.println(mestoDB + " " + oblacnostDB + " " + najvyysiaTeplotaCezDenDB + " " + najnizsiaTeplotaVNociDB);
+
+
+
             }
 
         } catch (SQLException e) {

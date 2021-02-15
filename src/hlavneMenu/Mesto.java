@@ -3,9 +3,9 @@ package hlavneMenu;
 public class Mesto {
     String mesto;
 
-    String najTeplota;
+    double najTeplota;
 
-    String minTeplota;
+    double minTeplota;
 
     String oblacno;
 
@@ -17,7 +17,7 @@ public class Mesto {
 
     }
 
-    public Mesto(String mesto, String najTeplota, String minTeplota, String oblacno, String datum) {
+    public Mesto(String mesto, double najTeplota, double minTeplota, String oblacno, String datum) {
         this.mesto = mesto;
         this.najTeplota = najTeplota;
         this.minTeplota = minTeplota;
@@ -33,19 +33,19 @@ public class Mesto {
         this.mesto = mesto;
     }
 
-    public String getNajTeplota() {
+    public double getNajTeplota() {
         return najTeplota;
     }
 
-    public void setNajTeplota(String najTeplota) {
+    public void setNajTeplota(Double najTeplota) {
         this.najTeplota = najTeplota;
     }
 
-    public String getMinTeplota() {
+    public double getMinTeplota() {
         return minTeplota;
     }
 
-    public void setMinTeplota(String minTeplota) {
+    public void setMinTeplota(Double minTeplota) {
         this.minTeplota = minTeplota;
     }
 
