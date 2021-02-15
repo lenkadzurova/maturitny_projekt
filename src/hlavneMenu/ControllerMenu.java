@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import nastavenia.Uzivatel;
 
+import javax.xml.crypto.dom.DOMCryptoContext;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -113,13 +114,14 @@ public class ControllerMenu {
             statement = connection.createStatement();
             String sql1 = "SELECT * From POCASIE WHERE mesto ='"+ vyhladavatMesto.getText().trim()+"'";
             vystupZDatabazy = statement.executeQuery(sql1);
+            double x = uzivatel.getHmotnost();
             while (vystupZDatabazy.next()) {
                 Mesto mesto = new Mesto();
                 mestoDB =  vystupZDatabazy.getString("mesto");
                 oblacnostDB = vystupZDatabazy.getString("oblacnost");
                 najvyysiaTeplotaCezDenDB = vystupZDatabazy.getInt("najvyysiaTeplotaCezDen");
                 najnizsiaTeplotaVNociDB = vystupZDatabazy.getInt("najnizsiaTeplotaVNoci");
-                mesto.setPitnyRezim(PitnyRezim.vypocet(uzivatel.getHmotnost(), Double.parseDouble(mesto.najTeplota)));
+                mesto.setPitnyRezim(PitnyRezim.vypocet(70, Double.parseDouble(mesto.najTeplota)));
 
                 System.out.println(mestoDB + " " + oblacnostDB + " " + najvyysiaTeplotaCezDenDB + " " + najnizsiaTeplotaVNociDB);
             }
