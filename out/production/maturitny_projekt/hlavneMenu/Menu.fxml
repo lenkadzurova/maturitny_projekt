@@ -24,7 +24,9 @@
                 <ColumnConstraints prefWidth="400" />
                 <ColumnConstraints prefWidth="100" />
                 <ColumnConstraints prefWidth="140" />
-                <ColumnConstraints prefWidth="650"/>
+                <ColumnConstraints prefWidth="390"/>
+                <ColumnConstraints prefWidth="130"/>
+                <ColumnConstraints prefWidth="140"/>
                 <ColumnConstraints prefWidth="30"/>
             </columnConstraints>
             <padding>
@@ -34,7 +36,9 @@
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
             <Button text="ULOŽIŤ DATA" prefWidth="140" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
             <Button text="ZOBRAZIŤ DATA" prefWidth="140" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-            <Button text="⁞" prefWidth="20" GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#nastavenia"/>
+            <Label fx:id="menoUzivatela" text="meno uživateľa" prefWidth="130" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+            <Button text="POUŽI NASTAVENIE" prefWidth="140" GridPane.columnIndex="5" GridPane.rowIndex="0" onAction="#pouziNastavenie"/>
+            <Button text="⁞" prefWidth="20" GridPane.columnIndex="6" GridPane.rowIndex="0" onAction="#nastavenia"/>
             <Label fx:id="mojeMesto" GridPane.halignment="CENTER"  prefHeight="50" GridPane.rowIndex="1" GridPane.columnSpan="5"/>
             <TableView  fx:id="tableView" GridPane.rowIndex="2" GridPane.columnSpan="5" editable="true" tableMenuButtonVisible="true"  >
                 <columnResizePolicy>
@@ -71,7 +75,7 @@
             </TableView>
             <HBox GridPane.rowIndex="1" spacing="10" alignment="TOP_RIGHT">
                 <Button text="ULOŽIŤ" prefWidth="100" />
-                <Button text="VYHODNOTIŤ" prefWidth="120" />
+                <Button text="VYHODNOTIŤ" prefWidth="120" onAction="#vyhodnotit" />
             </HBox>
         </GridPane>
     </bottom>

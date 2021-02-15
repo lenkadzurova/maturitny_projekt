@@ -9,7 +9,7 @@ public class Uzivatel {
     private int vek;
     private double hmotnost;
 
-    private Uzivatel(){
+    public Uzivatel(){
 
     }
 
@@ -43,7 +43,7 @@ public class Uzivatel {
         return vek;
     }
 
-    public void setVek(int vek) {
+    public void setVek(String a) {
         this.vek = vek;
     }
 
@@ -51,7 +51,7 @@ public class Uzivatel {
         return hmotnost;
     }
 
-    public void setHmotnost(){
+    public void setHmotnost(String s){
         this.hmotnost = hmotnost;
     }
 

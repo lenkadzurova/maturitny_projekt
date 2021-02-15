@@ -27,7 +27,9 @@ public class DBUzivatela {
                     " zapadSlnka DOUBLE, " +
                     " PRIMARY KEY ( id ));";
             statement.execute(sql);*/
-
+            //SELECT * FROM POCASIE WHERE mesto = 'Holic';
+            String sqlinsert = " INSERT INTO POCASIE VALUES (67, 'Skalica', 'sobota', 'polooblačno', 23 , 17, 6.00, 19.30)";
+            statement.execute(sqlinsert);
             connection.close();
         }
         catch (SQLException e){

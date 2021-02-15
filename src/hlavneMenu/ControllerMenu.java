@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import nastavenia.Uzivatel;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,9 +27,11 @@ public class ControllerMenu {
     @FXML
     TextField vyhladavatMesto;
 
-
     @FXML
     Label mojeMesto;
+
+    @FXML
+    Label menoUzivatela;
 
     @FXML
     TableView tableView;
@@ -98,7 +101,7 @@ public class ControllerMenu {
 
 
 
-    /*List<Mesto> mesta = new ArrayList<>();
+    List<Mesto> mesta = new ArrayList<>();
     public void ziskanieInformaciiZDB() {
         Connection connection = null;
         Statement statement = null;
@@ -112,16 +115,27 @@ public class ControllerMenu {
         while (true) {
             Mesto mesto = new Mesto();
             mesto.setMesto("SELECT * From POCASIE WHERE mesto'");
-            mesto.setMesto("SELECT * From POCASIE WHERE den'");
-            mesto.setMesto("SELECT * From POCASIE WHERE oblacnost'");
-            mesto.setMesto("SELECT * From POCASIE WHERE najvyysiaTeplotaCezDen'");
-            mesto.setMesto("SELECT * From POCASIE WHERE najnizsiaTeplotaVNoci'");
-            mesto.setMesto("SELECT * From POCASIE WHERE vychodSlnka'");
-            mesto.setMesto("SELECT * From POCASIE WHERE zapadSlnka'");
+            mesto.setDatum("SELECT * From POCASIE WHERE datum'");
+            mesto.setOblacno("SELECT * From POCASIE WHERE oblacnost'");
+            mesto.setNajTeplota("SELECT * From POCASIE WHERE najvyysiaTeplotaCezDen'");
+            mesto.setMinTeplota("SELECT * From POCASIE WHERE najnizsiaTeplotaVNoci'");
 
             mesta.add(mesto);
         }
-    }*/
+
+    }
+
+
+    public void vyhodnotit(){
+
+
+    }
+
+    public void pouziNastavenie(){
+        menoUzivatela.setText(Uzivatel.getInstance().getPriezvisko());
+        System.out.println(Uzivatel.getInstance().getPriezvisko());
+    }
+
 
 }
 

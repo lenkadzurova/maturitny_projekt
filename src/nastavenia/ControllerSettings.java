@@ -177,5 +177,15 @@ public class ControllerSettings {
 
         }
 
+
+
+    }
+    public void pouzit(){
+        Uzivatel uzivatel = Uzivatel.getInstance();
+        uzivatel.setMeno(meno.getText());
+        uzivatel.setPohlavie(priezvisko.getText());
+        uzivatel.setPohlavie(pohlavie.getText());
+        uzivatel.setHmotnost(hmotnost.getText());
+        uzivatel.setVek(vek.getText());
     }
 }

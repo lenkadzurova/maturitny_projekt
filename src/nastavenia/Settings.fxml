@@ -60,7 +60,7 @@
                 <Insets top="5" left="5" right="5" bottom="5"></Insets>
             </padding>
             <Button onAction="#ulozit" text="Uložiť" prefWidth="90" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="RIGHT"/>
-            <Button text="Použiť" prefWidth="90" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="LEFT"/>
+            <Button text="Použiť" prefWidth="90" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="LEFT" onAction="#pouzit"/>
         </GridPane>
     </bottom>
 </BorderPane>
