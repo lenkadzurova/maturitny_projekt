@@ -11,9 +11,14 @@ public class Mesto {
 
     String datum;
 
-    double pitnyRezim;
+    double vypocetPitnehoRezimu;
 
-    public  Mesto(){
+    String pitnyRezim;
+
+
+    String vyhodnotiePitia;
+
+    public Mesto() {
 
     }
 
@@ -23,6 +28,7 @@ public class Mesto {
         this.minTeplota = minTeplota;
         this.oblacno = oblacno;
         this.datum = datum;
+
     }
 
     public String getMesto() {
@@ -37,7 +43,7 @@ public class Mesto {
         return najTeplota;
     }
 
-    public void setNajTeplota(Double najTeplota) {
+    public void setNajTeplota(double najTeplota) {
         this.najTeplota = najTeplota;
     }
 
@@ -45,7 +51,7 @@ public class Mesto {
         return minTeplota;
     }
 
-    public void setMinTeplota(Double minTeplota) {
+    public void setMinTeplota(double minTeplota) {
         this.minTeplota = minTeplota;
     }
 
@@ -65,11 +71,28 @@ public class Mesto {
         this.datum = datum;
     }
 
-    public double getPitnyRezim() {
+    public double getVypocetPitnehoRezimu() {
+        return vypocetPitnehoRezimu;
+    }
+
+    public void setVypocetPitnehoRezimu(double vypocetPitnehoRezimu) {
+        this.vypocetPitnehoRezimu = vypocetPitnehoRezimu;
+    }
+
+    public String getPitnyRezim() {
         return pitnyRezim;
     }
 
-    public void setPitnyRezim(double pitnyRezim) {
+    public void setPitnyRezim(String pitnyRezim) {
         this.pitnyRezim = pitnyRezim;
     }
+
+    public String getVyhodnotiePitia() {
+        return vyhodnotiePitia;
+    }
+
+    public void setVyhodnotiePitia(String vyhodnotiePitia) {
+        this.vyhodnotiePitia = vyhodnotiePitia;
+    }
 }
+

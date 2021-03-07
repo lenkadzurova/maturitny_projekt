@@ -187,5 +187,6 @@ public class ControllerSettings {
         uzivatel.setPohlavie(pohlavie.getText());
         uzivatel.setHmotnost(Double.parseDouble(hmotnost.getText()) );
         uzivatel.setVek(Integer.parseInt(vek.getText()) );
+
     }
 }

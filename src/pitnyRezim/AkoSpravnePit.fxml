@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pitnyRezim.ControllerAkoSpravnePit"
+            prefHeight="300.0" prefWidth="1200.0">
+
+    <center>
+        <GridPane hgap="10" vgap="10" gridLinesVisible="false" >
+            <padding>
+                <Insets top="10" left="10" right="10" bottom="10" ></Insets>
+            </padding>
+            <Label GridPane.rowIndex="0">Pitný režim</Label>
+            <Label GridPane.rowIndex="1"> Pitný režim je jedným z najdôležitejších opatrení pri úprave spôsobu života. Je dôležité prijímať dostatok vody (nie nealkoholických nápojov),
+                aby obličky mali možnosť uvolnené </Label>
+            <Label GridPane.rowIndex="2">toxické látky vylučovať bez rizika poškodenia. Polievka, mlieko, káva, zeleninové a ovocné šťavy sa nepočítajú do množstva prijatých tekutín. </Label>
+            <Label GridPane.rowIndex="3"> Čo piť? </Label>
+            <Label GridPane.rowIndex="4">dojčeneckú alebo filtrovanú vodu stolovú a pramenité vody, bylinkové čaje a zeleý čaj (pripravené z filtrovanej alebo dojčeneckej vody) minerálne
+                vody s nízkou mineralizáciou  </Label>
+            <Label GridPane.rowIndex="5"> Koľko piť? </Label>
+            <Label GridPane.rowIndex="6">najmenej 0,5 litra (maximálne 0,7 litra) na každých (aj začatých) 15 kg hmotnosti o 70 kg človek: 70 : 15 = 4,7 x 0,5 = 2,3 litra zjednodušene:
+                70 : 30 = 2,3 litra v prípade väčších </Label>
+            <Label GridPane.rowIndex="7">strát vody potením, na každý 1 kg úbytku telesnej hmotnosti pri fyzickej aktivite, doplniť tekutiny v objeme
+                4 šálok (spolu 1 liter) sledujte si farbu moču čím tmavší, tým horšie</Label>
+            <Label GridPane.rowIndex="8">(ste dehydratovaní - zvýšte príjem tekutín!) z cviklovej šťavy, jahôd, čučoriedok, vitamínov B môže byť rúžový alebo žltý, ale mal by byť číry  </Label>
+
+        </GridPane>
+
+    </center>
+</BorderPane>
