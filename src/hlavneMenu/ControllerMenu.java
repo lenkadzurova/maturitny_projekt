@@ -131,6 +131,7 @@ public class ControllerMenu {
                 mesto.setOblacno(vystupZDatabazy.getString("oblacnost"));
                 mesto.setNajTeplota(vystupZDatabazy.getDouble("najvysiaTeplotaCezDen"));
                 mesto.setMinTeplota(vystupZDatabazy.getDouble("najnizsiaTeplotaVNoci"));
+                mesto.setPitnyRezim(vystupZDatabazy.getString("pitnyRezim"));
 
                 mesto.setVypocetPitnehoRezimu(PitnyRezim.vypocet(uzivatel.getHmotnost(), vystupZDatabazy.getDouble("najvysiaTeplotaCezDen")));
 
@@ -158,7 +159,7 @@ public class ControllerMenu {
             root = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setTitle("Ako správne piť");
-            stage.setScene(new Scene(root, 1200, 300));
+            stage.setScene(new Scene(root, 1200, 400));
             stage.show();
             //((Node) (event.getSource())).getScene().getWindow().hide();
         } catch (IOException e){
@@ -183,8 +184,6 @@ public class ControllerMenu {
             String sql1 = "SELECT * From POCASIE";
             vystupZDatabazy = statement.executeQuery(sql1);
             while (vystupZDatabazy.next()) {
-                Mesto mesto = new Mesto();
-                mesto.setPitnyRezim(vystupZDatabazy.getString("pitnyRezim"));
                 String ciastkovyPR = mesta.get(0).pitnyRezim;
                 List<String> strings = Arrays.asList(ciastkovyPR.split(","));
                     for (String s : strings){
@@ -193,9 +192,6 @@ public class ControllerMenu {
                     }
             }
             System.out.println(hodnotyPT.toString());
-
-
-            System.out.println(vystupZDatabazy);
 
 
         } catch (SQLException e) {
