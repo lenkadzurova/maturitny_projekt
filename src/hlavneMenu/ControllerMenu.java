@@ -1,6 +1,7 @@
 package hlavneMenu;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ import nastavenia.Uzivatel;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -36,6 +38,26 @@ public class ControllerMenu {
     @FXML
     TableView tableView;
 
+    @FXML
+    TextField nalacno;
+
+    @FXML
+    TextField osmej;
+
+    @FXML
+    TextField desiatej;
+
+    @FXML
+    TextField dvanastej;
+
+    @FXML
+    TextField strnastej;
+
+    @FXML
+    TextField sestnastej;
+
+    @FXML
+    TextField osemnastej;
 
     Uzivatel uzivatel = Uzivatel.getInstance();
     TEST pokus = TEST.getInstance();
@@ -184,7 +206,7 @@ public class ControllerMenu {
             String sql1 = "SELECT * From POCASIE";
             vystupZDatabazy = statement.executeQuery(sql1);
             while (vystupZDatabazy.next()) {
-                String ciastkovyPR = mesta.get(0).pitnyRezim;
+                String ciastkovyPR = vystupZDatabazy.getString("PITNYREZIM");
                 List<String> strings = Arrays.asList(ciastkovyPR.split(","));
                     for (String s : strings){
                         Double d = Double.parseDouble(s);
@@ -192,11 +214,23 @@ public class ControllerMenu {
                     }
             }
             System.out.println(hodnotyPT.toString());
-
+            nalacno.setText(String.valueOf(hodnotyPT.get(0)));
+            osmej.setText(String.valueOf(hodnotyPT.get(1)));
+            desiatej.setText(String.valueOf(hodnotyPT.get(2)));
+            dvanastej.setText(String.valueOf(hodnotyPT.get(3)));
+            strnastej.setText(String.valueOf(hodnotyPT.get(4)));
+            sestnastej.setText(String.valueOf(hodnotyPT.get(5)));
+            osemnastej.setText(String.valueOf(hodnotyPT.get(6)));
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+    }
+    public void ulozit() {
+        String dataPT = nalacno.getText() + " " + osmej.getText() + " " + desiatej.getText() + " " + dvanastej.getText()
+                        + " " + strnastej.getText() + " " + sestnastej.getText() + " " + osemnastej.getText();
+        System.out.println(dataPT);
     }
 
 
@@ -205,9 +239,6 @@ public class ControllerMenu {
 
         System.out.println(Uzivatel.getInstance().getMeno() + Uzivatel.getInstance().getPriezvisko());
     }
-
-
-
 
 
 

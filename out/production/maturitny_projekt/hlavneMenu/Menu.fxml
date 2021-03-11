@@ -66,22 +66,22 @@
                 <Insets top="20" left="20" right="20" bottom="20"></Insets>
             </padding>
             <Label text="NALAČNO" alignment="CENTER" prefWidth="120" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <TextField fx:id="nalacno" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="0" />
             <Label text="8:00 - 10:00" alignment="CENTER" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <TextField fx:id="osmej" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="1" />
             <Label text="10:00 - 12:00" alignment="CENTER" prefWidth="120" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+            <TextField fx:id="desiatej" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="2" />
             <Label text="12:00 - 14:00" alignment="CENTER" prefWidth="120" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+            <TextField fx:id="dvanastej" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="3" />
             <Label text="14:00 - 16:00" alignment="CENTER" prefWidth="120" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="4" />
+            <TextField fx:id="strnastej" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="4" />
             <Label text="16:00 - 18:00" alignment="CENTER" prefWidth="120" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="5" />
+            <TextField fx:id="sestnastej" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="5" />
             <Label text="18:00 - 21:00" alignment="CENTER" prefWidth="120" GridPane.columnIndex="6" GridPane.rowIndex="0"/>
-            <TextField prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="6" />
+            <TextField fx:id="osemnastej" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="6" />
             <Button text="AKO SPRÁVNE PIŤ" onAction="#akoSpravnePit" prefWidth="200" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
             <HBox GridPane.rowIndex="2" GridPane.columnIndex="4" spacing="10" alignment="TOP_RIGHT" GridPane.columnSpan="3">
-                <Button text="ULOŽIŤ" prefWidth="100" />
+                <Button text="ULOŽIŤ" prefWidth="100" onAction="#ulozit" />
                 <Button text="VYHODNOTIŤ" prefWidth="120" onAction="#vyhodnotit" />
             </HBox>
         </GridPane>
