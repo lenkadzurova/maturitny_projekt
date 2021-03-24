@@ -1,6 +1,8 @@
 package hlavneMenu;
 
 public class Mesto {
+    int id;
+
     String mesto;
 
     double najTeplota;
@@ -73,6 +75,14 @@ public class Mesto {
 
     public double getVypocetPitnehoRezimu() {
         return vypocetPitnehoRezimu;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setVypocetPitnehoRezimu(double vypocetPitnehoRezimu) {

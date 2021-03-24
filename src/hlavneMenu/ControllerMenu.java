@@ -1,5 +1,6 @@
 package hlavneMenu;
 
+import connection.DatabaseCon;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,14 +60,18 @@ public class ControllerMenu {
     @FXML
     TextField osemnastej;
 
+    @FXML
+    Label vyhodnotenie;
+
     Uzivatel uzivatel = Uzivatel.getInstance();
     TEST pokus = TEST.getInstance();
 
 
     List<Mesto> mestoList  = new ArrayList<>();
     List<Mesto>mesta = new ArrayList<>();
-
-
+    List<Double> hodnotyPT = new ArrayList<>();
+    double pitnyRezim = 0;
+    int id = 0;
 
     public void initialize(){
 
@@ -92,7 +97,7 @@ public class ControllerMenu {
         col4.setCellValueFactory(new PropertyValueFactory<>("minTeplota"));
 
         TableColumn<Mesto, String> col5 = new TableColumn<>("Pitny rezim");
-        col5.setCellValueFactory(new PropertyValueFactory<>("pitnyRezim"));
+        col5.setCellValueFactory(new PropertyValueFactory<>("vypocetPitnehoRezimu"));
 
         tableView.getColumns().add(col1);
         tableView.getColumns().add(col2);
@@ -107,7 +112,11 @@ public class ControllerMenu {
         tableView.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
 
             Mesto mesto =  (Mesto) tableView.getSelectionModel().getSelectedItem();
-            menoUzivatela.setText(new Double(mesto.getPitnyRezim()).toString());
+            if(mesto != null) {
+                pitnyRezim = mesto.getVypocetPitnehoRezimu();
+                id = mesto.getId();
+                hodnotyPitnehoRezimu(mesto.getPitnyRezim());
+            }//menoUzivatela.setText(new Double(mesto.getPitnyRezim()).toString());
         });
 
 
@@ -135,11 +144,11 @@ public class ControllerMenu {
 
     @FXML
     public void hladat() {
+        tableView.getItems().clear();
+        mesta.clear();
         Connection connection = null;
         Statement statement = null;
         ResultSet vystupZDatabazy = null;
-        tableView.getItems().clear();
-        mesta.clear();
 
         try {
             connection = databaseCon.getConnection();
@@ -149,6 +158,7 @@ public class ControllerMenu {
             double x = uzivatel.getHmotnost();
             while (vystupZDatabazy.next()) {
                 Mesto mesto = new Mesto();
+
                 mesto.setMesto(vystupZDatabazy.getString("mesto"));
                 mesto.setOblacno(vystupZDatabazy.getString("oblacnost"));
                 mesto.setNajTeplota(vystupZDatabazy.getDouble("najvysiaTeplotaCezDen"));
@@ -156,7 +166,6 @@ public class ControllerMenu {
                 mesto.setPitnyRezim(vystupZDatabazy.getString("pitnyRezim"));
 
                 mesto.setVypocetPitnehoRezimu(PitnyRezim.vypocet(uzivatel.getHmotnost(), vystupZDatabazy.getDouble("najvysiaTeplotaCezDen")));
-
                 mesta.add(mesto);
             }
             tableView.getItems().addAll(FXCollections.observableArrayList(mesta));
@@ -181,7 +190,7 @@ public class ControllerMenu {
             root = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setTitle("Ako správne piť");
-            stage.setScene(new Scene(root, 1200, 400));
+            stage.setScene(new Scene(root, 1000, 400));
             stage.show();
             //((Node) (event.getSource())).getScene().getWindow().hide();
         } catch (IOException e){
@@ -189,48 +198,80 @@ public class ControllerMenu {
         }
     }
 
+    public void hodnotyPitnehoRezimu(String pitnyRezim){
+
+
+        List<String> strings = Arrays.asList(pitnyRezim.split(","));
+        for (String s : strings){
+            Double d = Double.parseDouble(s);
+            hodnotyPT.add(d);
+        }
+
+
+        double nal = hodnotyPT.get(0);
+        double osm = hodnotyPT.get(1);
+        double des = hodnotyPT.get(2);
+        double dva = hodnotyPT.get(3);
+        double str = hodnotyPT.get(4);
+        double ses = hodnotyPT.get(5);
+        double ose = hodnotyPT.get(6);
+
+        nalacno.setText(String.valueOf(nal));
+        osmej.setText(String.valueOf(osm));
+        desiatej.setText(String.valueOf(des));
+        dvanastej.setText(String.valueOf(dva));
+        strnastej.setText(String.valueOf(str));
+        sestnastej.setText(String.valueOf(ses));
+        osemnastej.setText(String.valueOf(ose));
+    }
 
     public void vyhodnotit(){
 
+        //hodnotyPitnehoRezimu(hodnotyPT.toString());
 
+
+        double nal = Double.parseDouble(nalacno.getText());
+        double osm = Double.parseDouble(osmej.getText());
+        double des = Double.parseDouble(desiatej.getText());
+        double dva = Double.parseDouble(dvanastej.getText());
+        double str = Double.parseDouble(strnastej.getText());
+        double ses = Double.parseDouble(sestnastej.getText());
+        double ose = Double.parseDouble(osemnastej.getText());
+
+        double celkovyPR = nal + osm + des + dva + str + ses + ose;
+        if(celkovyPR >= pitnyRezim ){
+            vyhodnotenie.setText("výborne, tvoj pitný režim je správny");
+        }else{
+            vyhodnotenie.setText("tvoj pitný režim je slabý, mal by si ho zlepšiť");
+        }
+        System.out.println(celkovyPR);
     }
 
-    List<Double> hodnotyPT = new ArrayList<>();
-    public void hodnotyPitnehoRezimu(){
+
+
+
+    public void ulozit() {
+        String dataPT = nalacno.getText() +  "," + osmej.getText() + "," + desiatej.getText() + "," + dvanastej.getText()
+                        + "," + strnastej.getText() + "," + sestnastej.getText() + "," + osemnastej.getText();
+        System.out.println(dataPT);
         Connection connection = null;
         Statement statement = null;
         ResultSet vystupZDatabazy = null;
         try {
             connection = databaseCon.getConnection();
             statement = connection.createStatement();
-            String sql1 = "SELECT * From POCASIE";
-            vystupZDatabazy = statement.executeQuery(sql1);
-            while (vystupZDatabazy.next()) {
-                String ciastkovyPR = vystupZDatabazy.getString("PITNYREZIM");
-                List<String> strings = Arrays.asList(ciastkovyPR.split(","));
-                    for (String s : strings){
-                        Double d = Double.parseDouble(s);
-                        hodnotyPT.add(d);
-                    }
-            }
-            System.out.println(hodnotyPT.toString());
-            nalacno.setText(String.valueOf(hodnotyPT.get(0)));
-            osmej.setText(String.valueOf(hodnotyPT.get(1)));
-            desiatej.setText(String.valueOf(hodnotyPT.get(2)));
-            dvanastej.setText(String.valueOf(hodnotyPT.get(3)));
-            strnastej.setText(String.valueOf(hodnotyPT.get(4)));
-            sestnastej.setText(String.valueOf(hodnotyPT.get(5)));
-            osemnastej.setText(String.valueOf(hodnotyPT.get(6)));
+
+            String sql = "UPDATE POCASIE SET PITNYREZIM = '"+ dataPT +  "' WHERE ID= 67";
+            System.out.println(sql);
+            statement.execute(sql);
+
+            updatePitnyrezim(dataPT);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.getStackTrace();
+
         }
 
-    }
-    public void ulozit() {
-        String dataPT = nalacno.getText() + " " + osmej.getText() + " " + desiatej.getText() + " " + dvanastej.getText()
-                        + " " + strnastej.getText() + " " + sestnastej.getText() + " " + osemnastej.getText();
-        System.out.println(dataPT);
     }
 
 
@@ -241,6 +282,16 @@ public class ControllerMenu {
     }
 
 
+    private void updatePitnyrezim(String pitnyRezim){
+
+        for (Mesto m : mesta){
+            if(m.getId() == id){
+                m.setPitnyRezim(pitnyRezim);
+                break;
+            }
+        }
+
+    }
 
 }
 

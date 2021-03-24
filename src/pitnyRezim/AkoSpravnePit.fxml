@@ -10,7 +10,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="pitnyRezim.ControllerAkoSpravnePit"
-            prefHeight="400.0" prefWidth="1200.0">
+            prefHeight="400.0" prefWidth="1000.0">
 
     <center>
         <GridPane hgap="10" vgap="10" gridLinesVisible="false" >
@@ -33,7 +33,7 @@
             <Label GridPane.rowIndex="9"> Kedy piť? </Label>
             <Label GridPane.rowIndex="10">ráno nalačno 0,5-1 liter (podľa hmotnosti) pomedzi jedlá najmenej počas jedla odvyknite si zapíjať jedlo tekutinou Smile každé sústo dobre požujte
                 ak ste po jedle smädní, vypite max. 2 dcl</Label>
-            <Label GridPane.rowIndex="11">vody a nabudúce sa napite pred jedením Smile pred spaním (nie veľa - aby ste zbytočne nerušili spánok budením sa na toaletu, ale nechoďte spať smädní - v noci veľa vody vypotíte a vydýchate</Label>
+            <Label GridPane.rowIndex="11" wrapText="true">vody a nabudúce sa napite pred jedením Smile pred spaním (nie veľa - aby ste zbytočne nerušili spánok budením sa na toaletu, ale nechoďte spať smädní - v noci veľa vody vypotíte a vydýchate</Label>
         </GridPane>
 
     </center>

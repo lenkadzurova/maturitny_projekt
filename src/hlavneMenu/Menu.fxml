@@ -34,7 +34,7 @@
             </padding>
             <TextField fx:id="vyhladavatMesto" GridPane.rowIndex="0" GridPane.columnIndex="0" />
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#hladat"/>
-            <Button text="ULOŽIŤ DATA" prefWidth="140" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#hodnotyPitnehoRezimu"/>
+            <Button text="ULOŽIŤ DATA" prefWidth="140" GridPane.columnIndex="2" GridPane.rowIndex="0" />
             <Button text="ZOBRAZIŤ DATA" prefWidth="140" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
             <Label fx:id="menoUzivatela" text="MENO UŽÍVATEĽA" prefWidth="150" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
             <Button text="POUŽI NASTAVENIE" prefWidth="170" GridPane.columnIndex="5" GridPane.rowIndex="0" onAction="#pouziNastavenie"/>
@@ -84,6 +84,7 @@
                 <Button text="ULOŽIŤ" prefWidth="100" onAction="#ulozit" />
                 <Button text="VYHODNOTIŤ" prefWidth="120" onAction="#vyhodnotit" />
             </HBox>
+            <Label text="VYHODNOTENIE" prefWidth="400" fx:id="vyhodnotenie"  alignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="1" />
         </GridPane>
     </bottom>
 </BorderPane>
