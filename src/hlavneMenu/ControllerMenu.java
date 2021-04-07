@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import nastavenia.Uzivatel;
 
@@ -119,7 +120,7 @@ public class ControllerMenu {
             }//menoUzivatela.setText(new Double(mesto.getPitnyRezim()).toString());
         });
 
-
+        mojeMesto.setFont(new Font("Arial", 20));
        // tableView.getItems().addAll(FXCollections.observableArrayList(mestoList));
     }
 
@@ -190,7 +191,7 @@ public class ControllerMenu {
             root = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setTitle("Ako správne piť");
-            stage.setScene(new Scene(root, 1000, 400));
+            stage.setScene(new Scene(root, 1200, 400));
             stage.show();
             //((Node) (event.getSource())).getScene().getWindow().hide();
         } catch (IOException e){
