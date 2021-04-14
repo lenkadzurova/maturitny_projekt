@@ -85,19 +85,19 @@ public class ControllerMenu {
         mestoList.add(new Mesto("Holic",5,5," jasno5", "piatok"));
         mestoList.add(new Mesto("Holic",6,6," jasno5", "sobota"));*/
 
-        TableColumn<Mesto, String> col1 = new TableColumn<>("Datum");
+        TableColumn<Mesto, String> col1 = new TableColumn<>("Deň");
         col1.setCellValueFactory(new PropertyValueFactory<>("datum"));
 
-        TableColumn<Mesto, String> col2 = new TableColumn<>("Oblano");
+        TableColumn<Mesto, String> col2 = new TableColumn<>("Oblačnosť");
         col2.setCellValueFactory(new PropertyValueFactory<>("oblacno"));
 
-        TableColumn<Mesto, String> col3 = new TableColumn<>("Naj teploa");
+        TableColumn<Mesto, String> col3 = new TableColumn<>("Naj teplota");
         col3.setCellValueFactory(new PropertyValueFactory<>("najTeplota"));
 
         TableColumn<Mesto, String> col4 = new TableColumn<>("Min teplota");
         col4.setCellValueFactory(new PropertyValueFactory<>("minTeplota"));
 
-        TableColumn<Mesto, String> col5 = new TableColumn<>("Pitny rezim");
+        TableColumn<Mesto, String> col5 = new TableColumn<>("Pitný režim");
         col5.setCellValueFactory(new PropertyValueFactory<>("vypocetPitnehoRezimu"));
 
         tableView.getColumns().add(col1);
@@ -161,6 +161,7 @@ public class ControllerMenu {
                 Mesto mesto = new Mesto();
 
                 mesto.setMesto(vystupZDatabazy.getString("mesto"));
+                mesto.setDatum(vystupZDatabazy.getString("den"));
                 mesto.setOblacno(vystupZDatabazy.getString("oblacnost"));
                 mesto.setNajTeplota(vystupZDatabazy.getDouble("najvysiaTeplotaCezDen"));
                 mesto.setMinTeplota(vystupZDatabazy.getDouble("najnizsiaTeplotaVNoci"));

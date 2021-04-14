@@ -28,7 +28,7 @@ public class DBUzivatela {
                     " PRIMARY KEY ( id ));";
             statement.execute(sql);*/
             //SELECT * FROM POCASIE WHERE mesto = 'Holic';
-            String sqlinsert = " INSERT INTO POCASIE VALUES (67, 'Skalica', 'sobota', 'polooblačno', 23 , 17, '0.3, 0.2, 0.2, 0.4, 0.2, 0.2, 0.3' )";
+            String sqlinsert = " INSERT INTO POCASIE VALUES (90, 'Poprad', 'Nedeľa', 'oblačno', 11 , 3 , '0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0' )";
             statement.execute(sqlinsert);
             connection.close();
         }
