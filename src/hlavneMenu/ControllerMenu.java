@@ -15,6 +15,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import nastavenia.Uzivatel;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
@@ -73,6 +75,7 @@ public class ControllerMenu {
     List<Double> hodnotyPT = new ArrayList<>();
     double pitnyRezim = 0;
     int id = 0;
+    private Image obrazok;
 
     public void initialize(){
 
@@ -126,11 +129,11 @@ public class ControllerMenu {
 
     @FXML
     public void nastavenia(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/nastavenia/Settings.fxml").toURI().toURL();
+        //URL url = new File("src/nastavenia/Settings.fxml").toURI().toURL();
         Parent root;
         try {
-            //root = FXMLLoader.load(getClass().getResource("/obvodyObsahy/ObvodyObsahy.fxml"));
-            root = FXMLLoader.load(url);
+            root = FXMLLoader.load(getClass().getResource("/nastavenia/Settings.fxml"));
+            //root = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setTitle("Nastavenia");
             stage.setScene(new Scene(root, 600, 400));
@@ -144,7 +147,7 @@ public class ControllerMenu {
 
 
     @FXML
-    public void hladat() {
+    public void hladat() throws SQLException {
         tableView.getItems().clear();
         mesta.clear();
         Connection connection = null;
@@ -176,6 +179,8 @@ public class ControllerMenu {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            connection.close();
         }
 
 
@@ -228,7 +233,7 @@ public class ControllerMenu {
     }
 
     public void vyhodnotit(){
-
+        vyhodnotenie.setFont(new Font("Arial", 15));
         //hodnotyPitnehoRezimu(hodnotyPT.toString());
 
 
@@ -242,9 +247,9 @@ public class ControllerMenu {
 
         double celkovyPR = nal + osm + des + dva + str + ses + ose;
         if(celkovyPR >= pitnyRezim ){
-            vyhodnotenie.setText("výborne, tvoj pitný režim je správny");
+            vyhodnotenie.setText("VÝBORNE, TVOJ PITNÝ REŽIM JE SPRÁVNY");
         }else{
-            vyhodnotenie.setText("tvoj pitný režim je slabý, mal by si ho zlepšiť");
+            vyhodnotenie.setText("TVOJ PITNÝ REŽIM JE SLABÝ, MAL BY SI HO ZLEPŠIŤ");
         }
         System.out.println(celkovyPR);
     }
@@ -252,7 +257,7 @@ public class ControllerMenu {
 
 
 
-    public void ulozit() {
+    public void ulozit() throws SQLException {
         String dataPT = nalacno.getText() +  "," + osmej.getText() + "," + desiatej.getText() + "," + dvanastej.getText()
                         + "," + strnastej.getText() + "," + sestnastej.getText() + "," + osemnastej.getText();
         System.out.println(dataPT);
@@ -271,7 +276,8 @@ public class ControllerMenu {
 
         } catch (SQLException e) {
             e.getStackTrace();
-
+        }finally {
+            connection.close();
         }
 
     }
@@ -292,6 +298,15 @@ public class ControllerMenu {
                 break;
             }
         }
+
+    }
+
+
+    private void obrázok(){
+
+        ImageIcon ii = new ImageIcon(this.getClass().getResource("obrazek2.jpg"));
+        obrazok = ii.getImage();
+
 
     }
 

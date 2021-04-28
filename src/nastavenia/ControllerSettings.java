@@ -36,7 +36,7 @@ public class ControllerSettings {
     DatabaseCon databaseCon = DatabaseCon.getInstance();
 
     @FXML
-    public void ulozit(){
+    public void ulozit() throws SQLException {
         System.out.println("save");
 
         String localMeno = meno.getText().trim();
@@ -48,11 +48,11 @@ public class ControllerSettings {
         String  localVek = vek.getText().trim();
 
         String  localHmotnost = hmotnost.getText().trim();
-
+        Connection connection = null;
 
 
         try {
-            Connection connection = DatabaseCon.getInstance().getConnection();
+            connection = DatabaseCon.getInstance().getConnection();
             Statement statement = connection.createStatement();
 
             String sql = " INSERT INTO UZIVATELIA VALUES ("+ generator() + ",'" + localMeno + "','" + localPriezvisko + "','" + localPohlavie + "','" + localVek + "'," + localHmotnost +");";
@@ -63,7 +63,8 @@ public class ControllerSettings {
 
         } catch (SQLException e) {
             e.getStackTrace();
-
+        }finally {
+            connection.close();
         }
     }
     private int  generator() {

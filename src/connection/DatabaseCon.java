@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseCon {
-    private String DB_URL = "jdbc:h2:tcp://localhost/C:/Users/admin/Desktop/škola/PRO/4.ročník/java/maturitnyProjekt.db";
+    private String DB_URL = "jdbc:h2:./maturitnyProjekt.db";
     private String USER = "lenka";
     private String PASS = "heslo";
 

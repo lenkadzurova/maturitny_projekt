@@ -21,8 +21,8 @@
             <padding>
                 <Insets top="10" left="10" right="10" ></Insets>
             </padding>
-            <TextField fx:id="vyhladavatMena" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-            <TextField fx:id="vyhladavatPriezviska" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <TextField fx:id="vyhladavatMena" promptText="Meno" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <TextField fx:id="vyhladavatPriezviska" promptText="Priezvisko" GridPane.rowIndex="0" GridPane.columnIndex="1" />
             <Button text="HĽADAŤ" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#hladat"/>
             <Label fx:id="chyba" GridPane.halignment="CENTER" prefHeight="30" GridPane.rowIndex="1" GridPane.columnSpan="3"/>
         </GridPane>
